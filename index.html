@@ -1214,12 +1214,12 @@
       <h2 class="section-title" style="color:#fff;">O TED em <em>ação</em></h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
-      <img src="images/galeria-1.png" alt="Fernando Cazzolli em treinamento corporativo" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;">
-      <img src="images/galeria-2.png" alt="Turma de treinamento TED Descomplicado" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;">
-      <img src="images/galeria-3.png" alt="Fernando Cazzolli palestrando sobre Transformação Digital" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;">
-      <img src="images/galeria-4.png" alt="Treinamento in company Jamef" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;">
-      <img src="images/galeria-5.png" alt="Fernando Cazzolli em palestra" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;">
-      <img src="images/galeria-6.png" alt="Turma pós-treinamento TED Descomplicado" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;">
+      <img src="images/galeria-1.png" alt="Fernando Cazzolli em treinamento corporativo" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:right center;border-radius:12px;cursor:zoom-in;">
+      <img src="images/galeria-2.png" alt="Turma de treinamento TED Descomplicado" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center center;border-radius:12px;cursor:zoom-in;">
+      <img src="images/galeria-3.png" alt="Fernando Cazzolli palestrando sobre Transformação Digital" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center top;border-radius:12px;cursor:zoom-in;">
+      <img src="images/galeria-4.png" alt="Treinamento in company Jamef" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center center;border-radius:12px;cursor:zoom-in;">
+      <img src="images/galeria-5.png" alt="Fernando Cazzolli em palestra" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center top;border-radius:12px;cursor:zoom-in;">
+      <img src="images/galeria-6.png" alt="Turma pós-treinamento TED Descomplicado" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center center;border-radius:12px;cursor:zoom-in;">
     </div>
   </div>
 </section>
@@ -1376,7 +1376,14 @@
     });
   });
 
-  // Form submit
+  // Lightbox
+  function openLightbox(src) {
+    const lb = document.createElement('div');
+    lb.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:20px;';
+    lb.innerHTML = `<img src="${src}" style="max-width:90vw;max-height:90vh;border-radius:12px;object-fit:contain;">`;
+    lb.onclick = () => lb.remove();
+    document.body.appendChild(lb);
+  }
   function submitForm() {
     const nome = document.getElementById('nome').value.trim();
     const email = document.getElementById('email').value.trim();
