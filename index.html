@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TED Descomplicado</title>
-<meta name="description" content="TED Descomplicado — Descomplicando ideias para impulsionar resultados. Mentoria individual, treinamentos corporativos e palestras com Fernando Cazzolli.">
+<title>TED Descomplicado — Formação de Novos Líderes</title>
+<meta name="description" content="TED Descomplicado — Treinamentos, palestras e ferramentas de diagnóstico comportamental para empresas que querem formar novos líderes com método e resultado.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><rect x='1' y='1' width='15' height='15' rx='3' fill='%23F5C842'/><rect x='20' y='1' width='15' height='15' rx='3' fill='%234CAF72'/><rect x='1' y='20' width='15' height='15' rx='3' fill='%234A6FE3'/><rect x='20' y='20' width='15' height='15' rx='3' fill='%239B59B6'/></svg>">
@@ -45,6 +45,7 @@
   }
   img { max-width: 100%; display: block; }
   a { text-decoration: none; color: inherit; }
+  em { font-style: normal; }
 
   /* ── TIPOGRAFIA ── */
   .display {
@@ -56,7 +57,7 @@
   .display-light {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-style: italic;
+    
   }
 
   /* ── LAYOUT ── */
@@ -120,223 +121,92 @@
     transition: opacity 0.2s !important;
   }
   .nav-cta:hover { opacity: 0.88; }
-  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; }
+  .nav-hamburger { display: none; }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+  }
 
-  /* ── HERO ── */
-  #hero {
-    background: var(--noite);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 80px 0 80px;
-  }
-  .hero-bg-dots {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 32px 32px;
-    pointer-events: none;
-  }
-  .hero-accent {
-    position: absolute;
-    top: -120px; right: -120px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(74,111,227,0.18) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-accent-2 {
-    position: absolute;
-    bottom: -80px; left: -80px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(245,200,66,0.10) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-inner {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  .hero-eyebrow {
+  /* ── BOTÕES ── */
+  .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--amarelo);
-    margin-bottom: 20px;
-  }
-  .hero-eyebrow-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--amarelo);
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.7); }
-  }
-  .hero-title {
-    font-size: clamp(42px, 5.5vw, 68px);
-    color: #fff;
-    margin-bottom: 24px;
-  }
-  .hero-title em {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 300;
-    color: var(--amarelo);
-  }
-  .hero-sub {
-    font-size: 18px;
-    color: rgba(255,255,255,0.62);
-    line-height: 1.65;
-    max-width: 480px;
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .btn-primary {
     background: var(--azul);
     color: #fff;
     font-size: 15px;
     font-weight: 600;
     padding: 14px 28px;
     border-radius: var(--radius-sm);
+    transition: background 0.2s, transform 0.15s;
     border: none;
     cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
   }
   .btn-primary:hover { background: var(--azul-hover); transform: translateY(-1px); }
   .btn-outline {
-    background: transparent;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 13px 28px;
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(255,255,255,0.25);
-    cursor: pointer;
-    transition: border-color 0.2s, transform 0.15s;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-  }
-  .btn-outline:hover { border-color: rgba(255,255,255,0.6); transform: translateY(-1px); }
-
-  /* puzzle visual */
-  .hero-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .puzzle-big {
-    width: 320px;
-    height: 320px;
-    position: relative;
-    animation: float 5s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-14px); }
-  }
-  .puzzle-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-    height: 100%;
-  }
-  .puzzle-piece {
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 6px;
-    transition: transform 0.3s;
-  }
-  .puzzle-piece:hover { transform: scale(1.04); }
-  .puzzle-piece .piece-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .pp-yellow { background: var(--amarelo); color: var(--noite); }
-  .pp-green  { background: var(--verde);   color: #fff; }
-  .pp-blue   { background: var(--azul);    color: #fff; }
-  .pp-purple { background: var(--roxo);    color: #fff; }
-  .piece-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
-  .piece-icon svg { width: 36px; height: 36px; }
-
-  /* ── NÚMEROS ── */
-  #numeros {
-    background: var(--off-white);
-    padding: 80px 0;
-    border-bottom: 1px solid var(--cinza-300);
-  }
-  .numeros-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-  .numero-item {
-    text-align: center;
-    padding: 32px 24px;
-    border-right: 1px solid var(--cinza-300);
-  }
-  .numero-item:last-child { border-right: none; }
-  .numero-val {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-size: 52px;
-    line-height: 1;
-    color: var(--noite);
-    letter-spacing: -0.02em;
-  }
-  .numero-val span { color: var(--azul); }
-  .numero-label {
-    font-size: 13px;
-    color: var(--cinza-500);
-    margin-top: 6px;
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
     font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    padding: 14px 24px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    transition: border-color 0.2s, color 0.2s;
+    cursor: pointer;
   }
-
-  /* ── PROBLEMA ── */
-  #problema {
-    background: var(--cinza-100);
-    padding: 100px 0;
-  }
-  .problema-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .section-eyebrow {
-    font-size: 11px;
+  .btn-outline:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
+  .btn-wpp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    font-size: 16px;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    padding: 16px 32px;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-wpp:hover { background: #1ebe58; transform: translateY(-2px); }
+  .btn-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid;
+    transition: opacity 0.2s;
+    margin-top: 20px;
+  }
+  .btn-card:hover { opacity: 0.75; }
+
+  /* ── SECTION EYEBROW / TITLE ── */
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--azul);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
   .section-title {
     font-family: 'Fraunces', serif;
@@ -344,475 +214,17 @@
     font-size: clamp(32px, 4vw, 48px);
     line-height: 1.1;
     letter-spacing: -0.02em;
-    color: var(--noite);
+    color: var(--texto);
     margin-bottom: 24px;
+    text-align: center;
   }
   .section-title em {
-    font-style: italic;
-    font-weight: 300;
+    
     color: var(--azul);
-  }
-  .problema-text {
-    font-size: 18px;
-    color: var(--texto-soft);
-    line-height: 1.75;
-    margin-bottom: 20px;
-  }
-  .problema-highlight {
-    display: inline-block;
-    background: var(--noite);
-    color: var(--amarelo);
-    font-family: 'Fraunces', serif;
-    font-style: italic;
     font-weight: 300;
-    font-size: 22px;
-    padding: 16px 28px;
-    border-radius: var(--radius-md);
-    margin-top: 12px;
-    line-height: 1.4;
   }
 
-  /* ── SERVIÇOS ── */
-  #servicos {
-    background: var(--off-white);
-    padding: 100px 0;
-  }
-  .servicos-header {
-    text-align: center;
-    margin-bottom: 56px;
-  }
-  .servicos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .servico-card {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    padding: 40px 32px;
-    border: 1px solid rgba(0,0,0,0.06);
-    transition: transform 0.25s, box-shadow 0.25s;
-    display: flex;
-    flex-direction: column;
-  }
-  .servico-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 48px rgba(0,0,0,0.09);
-  }
-  .servico-icon {
-    width: 52px; height: 52px;
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    margin-bottom: 24px;
-    flex-shrink: 0;
-  }
-  .servico-card h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 22px;
-    color: var(--noite);
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-  .servico-card p {
-    font-size: 15px;
-    color: var(--texto-soft);
-    line-height: 1.65;
-    flex: 1;
-    margin-bottom: 28px;
-  }
-  .servico-tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 28px;
-  }
-  .servico-tag {
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.04em;
-  }
-  .btn-card {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 11px 20px;
-    border-radius: var(--radius-sm);
-    border: 1.5px solid;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: transparent;
-    align-self: flex-start;
-  }
-
-  /* ── SOBRE ── */
-  #sobre {
-    background: var(--noite);
-    padding: 100px 0;
-  }
-  .sobre-inner {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .sobre-foto-wrap {
-    position: relative;
-  }
-  .sobre-foto {
-    width: 100%;
-    aspect-ratio: 4/5;
-    background: var(--cinza-800);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    position: relative;
-  }
-  .foto-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-  .foto-initials {
-    width: 80px; height: 80px;
-    border-radius: 50%;
-    background: var(--azul);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    font-weight: 700;
-    color: #fff;
-  }
-  .foto-note {
-    font-size: 12px;
-    color: var(--cinza-300);
-    text-align: center;
-    padding: 0 20px;
-  }
-  .sobre-badge {
-    position: absolute;
-    bottom: -20px; right: -20px;
-    background: var(--amarelo);
-    color: var(--noite);
-    border-radius: var(--radius-md);
-    padding: 16px 20px;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 1.3;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    max-width: 160px;
-    text-align: center;
-  }
-  .sobre-eyebrow { color: var(--amarelo); margin-bottom: 16px; }
-  .sobre-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-size: clamp(32px, 3.5vw, 44px);
-    color: #fff;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-  }
-  .sobre-title em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--amarelo);
-  }
-  .sobre-text {
-    font-size: 16px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.75;
-    margin-bottom: 16px;
-  }
-  .sobre-valores {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 28px 0 36px;
-  }
-  .valor-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .valor-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 7px;
-  }
-  .valor-text {
-    font-size: 15px;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.5;
-  }
-  .sobre-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--azul);
-    font-size: 14px;
-    font-weight: 600;
-    transition: gap 0.2s;
-  }
-  .sobre-link:hover { gap: 12px; }
-
-  /* ── DEPOIMENTOS ── */
-  #depoimentos {
-    background: var(--cinza-100);
-    padding: 100px 0;
-  }
-  .depo-header { text-align: center; margin-bottom: 52px; }
-  .depo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .depo-card {
-    background: #fff;
-    border-radius: var(--radius-md);
-    padding: 32px;
-    border: 1px solid rgba(0,0,0,0.06);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .depo-stars { color: var(--amarelo); font-size: 14px; letter-spacing: 2px; }
-  .depo-text {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 17px;
-    color: var(--noite);
-    line-height: 1.6;
-    flex: 1;
-  }
-  .depo-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-top: 16px;
-    border-top: 1px solid var(--cinza-300);
-  }
-  .depo-avatar {
-    width: 42px; height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
-    flex-shrink: 0;
-  }
-  .depo-name { font-size: 14px; font-weight: 600; color: var(--noite); }
-  .depo-role { font-size: 12px; color: var(--cinza-500); }
-
-  /* ── B2B ── */
-  #empresas {
-    background: var(--off-white);
-    padding: 100px 0;
-  }
-  .empresas-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .empresas-content .section-title { text-align: left; }
-  .empresas-content p {
-    font-size: 16px;
-    color: var(--texto-soft);
-    line-height: 1.75;
-    margin-bottom: 16px;
-  }
-  .empresas-lista {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 24px 0 36px;
-  }
-  .empresas-lista li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-    color: var(--texto-soft);
-  }
-  .check {
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    background: var(--verde);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 11px;
-    color: #fff;
-    font-weight: 700;
-  }
-  .empresas-form {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    padding: 40px;
-    border: 1px solid rgba(0,0,0,0.06);
-  }
-  .empresas-form h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 22px;
-    color: var(--noite);
-    margin-bottom: 6px;
-  }
-  .empresas-form p {
-    font-size: 14px;
-    color: var(--cinza-500);
-    margin-bottom: 24px;
-  }
-  .form-group { margin-bottom: 16px; }
-  .form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--noite);
-    margin-bottom: 6px;
-  }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 11px 14px;
-    border: 1px solid var(--cinza-300);
-    border-radius: var(--radius-sm);
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    color: var(--noite);
-    background: var(--off-white);
-    transition: border-color 0.2s;
-    outline: none;
-  }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--azul);
-    background: #fff;
-  }
-  .form-group textarea { resize: vertical; min-height: 90px; }
-  .btn-form {
-    width: 100%;
-    background: var(--azul);
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 14px;
-    border: none;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: background 0.2s;
-    font-family: 'Inter', sans-serif;
-  }
-  .btn-form:hover { background: var(--azul-hover); }
-
-  /* ── CTA FINAL ── */
-  #cta-final {
-    background: var(--noite);
-    padding: 100px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-bg {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, rgba(74,111,227,0.15) 0%, transparent 65%);
-    pointer-events: none;
-  }
-  .cta-inner { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
-  .cta-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-size: clamp(36px, 5vw, 58px);
-    color: #fff;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    margin-bottom: 20px;
-  }
-  .cta-title em { font-style: italic; font-weight: 300; color: var(--amarelo); }
-  .cta-sub {
-    font-size: 18px;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 44px;
-    line-height: 1.6;
-  }
-  .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .btn-wpp {
-    background: #25D366;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 15px 32px;
-    border-radius: var(--radius-sm);
-    border: none;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: opacity 0.2s, transform 0.15s;
-  }
-  .btn-wpp:hover { opacity: 0.88; transform: translateY(-1px); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #080808;
-    padding: 48px 0 32px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 32px;
-  }
-  .footer-logo { display: flex; align-items: center; gap: 10px; }
-  .footer-logo-text { font-size: 16px; font-weight: 700; color: #fff; }
-  .footer-logo-text span { font-weight: 300; }
-  .footer-links { display: flex; gap: 28px; }
-  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.45); transition: color 0.2s; }
-  .footer-links a:hover { color: rgba(255,255,255,0.85); }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
-  .footer-socials { display: flex; gap: 16px; }
-  .social-link {
-    width: 34px; height: 34px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-  }
-  .social-link:hover { background: rgba(255,255,255,0.14); }
-  .social-link svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.55); }
-
-  /* ── SCROLL REVEAL ── */
+  /* ── REVEAL ANIMATION ── */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -823,49 +235,856 @@
     transform: translateY(0);
   }
 
-  /* ── MOBILE ── */
+  /* ── HERO ── */
+  #hero {
+    background: var(--noite);
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+  }
+  .hero-bg-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+  .hero-accent {
+    position: absolute;
+    top: -180px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74,111,227,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-accent-2 {
+    position: absolute;
+    bottom: -200px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(245,200,66,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amarelo);
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amarelo);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  .hero-title {
+    font-size: clamp(42px, 5.5vw, 68px);
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .hero-title em {
+    color: var(--amarelo);
+    
+    font-weight: 300;
+  }
+  .hero-sub {
+    font-size: 18px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 40px;
+    max-width: 480px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .puzzle-big { position: relative; }
+  .puzzle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .puzzle-piece {
+    width: 160px;
+    height: 160px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.3s;
+  }
+  .puzzle-piece:hover { transform: translateY(-4px); }
+  .piece-icon { width: 36px; height: 36px; }
+  .piece-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .pp-yellow { background: rgba(245,200,66,0.12); border: 1.5px solid rgba(245,200,66,0.25); }
+  .pp-yellow .piece-label { color: var(--amarelo); }
+  .pp-yellow svg { stroke: var(--amarelo); }
+  .pp-green  { background: rgba(76,175,114,0.12); border: 1.5px solid rgba(76,175,114,0.25); }
+  .pp-green  .piece-label { color: var(--verde); }
+  .pp-green  svg { stroke: var(--verde); }
+  .pp-blue   { background: rgba(74,111,227,0.12); border: 1.5px solid rgba(74,111,227,0.25); }
+  .pp-blue   .piece-label { color: var(--azul); }
+  .pp-blue   svg { stroke: var(--azul); }
+  .pp-purple { background: rgba(155,89,182,0.12); border: 1.5px solid rgba(155,89,182,0.25); }
+  .pp-purple .piece-label { color: var(--roxo); }
+  .pp-purple svg { stroke: var(--roxo); }
   @media (max-width: 900px) {
     .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-    .hero-visual { order: -1; }
-    .puzzle-big { width: 220px; height: 220px; }
-    .numeros-grid { grid-template-columns: repeat(2, 1fr); }
-    .numero-item:nth-child(2) { border-right: none; }
-    .servicos-grid { grid-template-columns: 1fr; }
-    .sobre-inner { grid-template-columns: 1fr; gap: 48px; }
-    .sobre-badge { bottom: 16px; right: 16px; }
-    .depo-grid { grid-template-columns: 1fr; }
-    .empresas-inner { grid-template-columns: 1fr; gap: 48px; }
-    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
-    .footer-bottom { flex-direction: column; gap: 16px; }
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 64px; left: 0; right: 0;
-      background: rgba(13,13,13,0.97);
-      padding: 20px 24px 28px;
-      gap: 20px;
-    }
-    .nav-links.mobile-open { display: flex; }
-    .nav-hamburger { display: block; }
-  }
-  @media (max-width: 480px) {
-    .numeros-grid { grid-template-columns: repeat(2, 1fr); }
-    .numero-val { font-size: 38px; }
-    .hero-actions { flex-direction: column; }
-    .hero-actions a, .hero-actions button { width: 100%; justify-content: center; }
-    .cta-actions { flex-direction: column; align-items: center; }
+    .hero-visual { display: none; }
+    #hero { min-height: auto; padding: 80px 0 64px; }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    *, .reveal { animation: none !important; transition: none !important; }
+  /* ── NÚMEROS ── */
+  #numeros {
+    background: var(--noite-soft);
+    padding: 56px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
   }
+  .numeros-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .numero-item {
+    text-align: center;
+    padding: 20px 16px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .numero-item:last-child { border-right: none; }
+  .numero-val {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(36px, 4vw, 52px);
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .numero-val span { color: var(--amarelo); }
+  .numero-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 640px) {
+    .numeros-grid { grid-template-columns: repeat(2, 1fr); }
+    .numero-item:nth-child(2) { border-right: none; }
+    .numero-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.07); }
+    .numero-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.07); border-right: none; }
+  }
+
+  /* ── PROBLEMA ── */
+  #problema {
+    padding: 96px 0;
+    background: var(--off-white);
+  }
+  .problema-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .problema-text {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--texto-soft);
+    margin-bottom: 20px;
+  }
+  .problema-dores {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 32px 0;
+    text-align: left;
+  }
+  .problema-dor {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+  }
+  .problema-dor-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--azul);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .problema-dor p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--texto);
+  }
+  .problema-highlight {
+    font-family: 'Fraunces', serif;
+    
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--azul);
+    margin-top: 32px;
+    padding: 24px 32px;
+    border-left: 3px solid var(--azul);
+    background: rgba(74,111,227,0.05);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    text-align: left;
+  }
+
+  /* ── SERVIÇOS ── */
+  #servicos {
+    padding: 96px 0;
+    background: var(--cinza-100);
+  }
+  .servicos-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .servico-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    border: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .servico-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  }
+  .servico-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .servico-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--texto);
+  }
+  .servico-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--texto-soft);
+    flex: 1;
+  }
+  .servico-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .servico-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  @media (max-width: 768px) {
+    .servicos-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── PARA QUEM ── */
+  #para-quem {
+    background: var(--noite);
+    padding: 80px 0;
+  }
+  .para-quem-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .para-quem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .para-quem-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .para-quem-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.15);
+  }
+  .para-quem-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .para-quem-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .para-quem-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.6);
+  }
+  @media (max-width: 768px) {
+    .para-quem-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── SOBRE ── */
+  #sobre {
+    padding: 96px 0;
+    background: var(--off-white);
+  }
+  .sobre-inner {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .sobre-foto-wrap { position: relative; }
+  .sobre-foto {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--cinza-300);
+  }
+  .sobre-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--noite);
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .sobre-eyebrow { color: var(--azul); }
+  .sobre-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--texto);
+    margin-bottom: 24px;
+  }
+  .sobre-title em {
+    
+    font-weight: 300;
+    color: var(--azul);
+  }
+  .sobre-text {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--texto-soft);
+    margin-bottom: 16px;
+  }
+  .sobre-quote {
+    font-family: 'Fraunces', serif;
+    
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--azul);
+    padding: 20px 24px;
+    border-left: 3px solid var(--azul);
+    background: rgba(74,111,227,0.05);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: 24px 0;
+  }
+  .sobre-valores { display: flex; flex-direction: column; gap: 14px; margin: 24px 0; }
+  .valor-item { display: flex; align-items: flex-start; gap: 12px; }
+  .valor-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+  .valor-text { font-size: 15px; color: var(--texto-soft); line-height: 1.6; }
+  .sobre-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--azul);
+    border-bottom: 1.5px solid var(--azul);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .sobre-link:hover { opacity: 0.75; }
+  @media (max-width: 900px) {
+    .sobre-inner { grid-template-columns: 1fr; gap: 40px; }
+    .sobre-badge { bottom: 12px; right: 12px; }
+  }
+
+  /* ── FERRAMENTAS ── */
+  #ferramentas {
+    padding: 96px 0;
+    background: var(--cinza-100);
+  }
+  .ferramentas-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .ferramentas-sub {
+    max-width: 600px;
+    margin: 16px auto 0;
+    font-size: 16px;
+    color: var(--texto-soft);
+    line-height: 1.65;
+    text-align: center;
+  }
+  .ferramentas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .ferramenta-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .ferramenta-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  }
+  .ferramenta-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 16px;
+  }
+  .ferramenta-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--texto);
+    margin-bottom: 12px;
+  }
+  .ferramenta-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--texto-soft);
+  }
+  .ferramenta-tag {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: var(--cinza-100);
+    color: var(--cinza-500);
+  }
+  .ferramentas-frase {
+    text-align: center;
+    margin-top: 52px;
+    font-family: 'Fraunces', serif;
+    
+    font-weight: 300;
+    font-size: 20px;
+    color: var(--azul);
+  }
+  @media (max-width: 900px) {
+    .ferramentas-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── DEPOIMENTOS ── */
+  #depoimentos {
+    padding: 96px 0;
+    background: var(--off-white);
+  }
+  .depo-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .depo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .depo-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    border: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+  }
+  .depo-stars {
+    color: var(--amarelo);
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .depo-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--texto-soft);
+    flex: 1;
+    
+    margin-bottom: 24px;
+  }
+  .depo-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+  }
+  .depo-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .depo-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texto);
+  }
+  .depo-role {
+    font-size: 12px;
+    color: var(--cinza-500);
+    margin-top: 2px;
+  }
+  @media (max-width: 900px) {
+    .depo-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── CTA FINAL ── */
+  #cta-final {
+    background: var(--noite);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(74,111,227,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .cta-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .cta-title em {
+    
+    font-weight: 300;
+    color: var(--amarelo);
+  }
+  .cta-sub {
+    font-size: 18px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 40px;
+  }
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ── FORMULÁRIO ── */
+  #contato {
+    padding: 80px 0;
+    background: var(--cinza-100);
+  }
+  .contato-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+  .contato-content h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .contato-content h2 em {
+    
+    font-weight: 300;
+    color: var(--azul);
+  }
+  .contato-content p {
+    font-size: 16px;
+    color: var(--texto-soft);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .contato-lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .contato-lista li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--texto-soft);
+  }
+  .check {
+    color: var(--verde);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .empresas-form {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    border: 1px solid rgba(0,0,0,0.07);
+  }
+  .empresas-form h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .empresas-form > p {
+    font-size: 14px;
+    color: var(--cinza-500);
+    margin-bottom: 24px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--texto);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--texto);
+    background: var(--cinza-100);
+    border: 1.5px solid transparent;
+    border-radius: var(--radius-sm);
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--azul);
+    background: #fff;
+  }
+  .form-group textarea { min-height: 100px; resize: vertical; }
+  .btn-form {
+    width: 100%;
+    background: var(--azul);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 4px;
+  }
+  .btn-form:hover { background: var(--azul-hover); transform: translateY(-1px); }
+  @media (max-width: 900px) {
+    .contato-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--noite);
+    padding: 40px 0 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer-logo-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .footer-logo-text span { font-weight: 300; }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #fff; }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-copy {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-socials { display: flex; gap: 16px; }
+  .social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .social-link:hover { background: rgba(255,255,255,0.12); }
+  .social-link svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: rgba(255,255,255,0.55);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 88vh;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    transition: background 0.2s;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.22); }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="navbar">
+<nav id="navbar" role="navigation" aria-label="Navegação principal">
   <div class="container">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo" aria-label="TED Descomplicado — início">
@@ -874,22 +1093,18 @@
           <rect x="20" y="1" width="15" height="15" rx="3" fill="#4CAF72"/>
           <rect x="1" y="20" width="15" height="15" rx="3" fill="#4A6FE3"/>
           <rect x="20" y="20" width="15" height="15" rx="3" fill="#9B59B6"/>
-          <rect x="14" y="14" width="8" height="8" rx="2" fill="#0D0D0D"/>
-          <circle cx="18" cy="18" r="3" fill="rgba(255,255,255,0.15)"/>
         </svg>
         <span class="nav-logo-text">TED <span>Descomplicado</span></span>
       </a>
-      <ul class="nav-links" role="list">
+      <ul class="nav-links">
         <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#ferramentas">Ferramentas</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
-        <li><a href="#empresas">Para empresas</a></li>
-        <li><a href="#cta-final" class="nav-cta">Fale comigo</a></li>
+        <li><a href="#contato" class="nav-cta">Fale conosco</a></li>
       </ul>
       <button class="nav-hamburger" aria-label="Abrir menu" onclick="toggleMenu()">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
-          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </div>
@@ -908,19 +1123,19 @@
           Descomplicando ideias para impulsionar resultados
         </div>
         <h1 class="hero-title display">
-          Desenvolvimento humano<br>
-          <em>sem complicação</em>
+          Líderes que desenvolvem.<br>
+          <em>Times que entregam.</em>
         </h1>
         <p class="hero-sub">
-          Mentoria, treinamentos e palestras que transformam o aprendizado em ação real. Sem enrolação, sem teoria vazia. Só o que funciona de verdade.
+          Treinamentos, palestras e ferramentas de diagnóstico comportamental para empresas que querem formar novos líderes com método e resultado real.
         </p>
         <div class="hero-actions">
-          <a href="#cta-final" class="btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Quero uma mentoria
+          <a href="https://wa.me/5511993388892?text=Ol%C3%A1%2C%20vim%20pelo%20site%20TED%20Descomplicado%20e%20gostaria%20de%20conversar%20sobre%20treinamento%20para%20minha%20equipe!" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero treinar minha equipe
           </a>
-          <a href="#servicos" class="btn-outline">
-            Ver treinamentos
+          <a href="#ferramentas" class="btn-outline">
+            Conhecer as ferramentas
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </div>
@@ -936,21 +1151,21 @@
             </div>
             <div class="puzzle-piece pp-green">
               <span class="piece-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"/><path d="M12 12C12 12 7 9 7 5a5 5 0 0 1 10 0c0 4-5 7-5 7z"/><path d="M12 12c0 0-5 3-5 7"/><path d="M12 12c0 0 5 3 5 7"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </span>
-              <span class="piece-label">Crescimento</span>
+              <span class="piece-label">Liderança</span>
             </div>
             <div class="puzzle-piece pp-blue">
               <span class="piece-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               </span>
-              <span class="piece-label">Conhecimento</span>
+              <span class="piece-label">Método</span>
             </div>
             <div class="puzzle-piece pp-purple">
               <span class="piece-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="2" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="22" y2="12"/></svg>
               </span>
-              <span class="piece-label">Propósito</span>
+              <span class="piece-label">Resultado</span>
             </div>
           </div>
         </div>
@@ -964,20 +1179,20 @@
   <div class="container">
     <div class="numeros-grid">
       <div class="numero-item reveal">
-        <div class="numero-val">500<span>+</span></div>
-        <div class="numero-label">Pessoas mentoradas</div>
+        <div class="numero-val">12<span>+</span></div>
+        <div class="numero-label">Anos desenvolvendo pessoas</div>
       </div>
       <div class="numero-item reveal" style="transition-delay:0.1s">
-        <div class="numero-val">80<span>+</span></div>
-        <div class="numero-label">Empresas atendidas</div>
+        <div class="numero-val">500<span>+</span></div>
+        <div class="numero-label">Horas em sala de treinamento</div>
       </div>
       <div class="numero-item reveal" style="transition-delay:0.2s">
-        <div class="numero-val">15<span>+</span></div>
-        <div class="numero-label">Anos de experiência</div>
+        <div class="numero-val">400<span>+</span></div>
+        <div class="numero-label">Líderes desenvolvidos</div>
       </div>
       <div class="numero-item reveal" style="transition-delay:0.3s">
-        <div class="numero-val">200<span>+</span></div>
-        <div class="numero-label">Palestras realizadas</div>
+        <div class="numero-val">1.000<span>+</span></div>
+        <div class="numero-label">Profissionais impactados</div>
       </div>
     </div>
   </div>
@@ -987,16 +1202,30 @@
 <section id="problema" aria-label="O problema que resolvemos">
   <div class="container">
     <div class="problema-inner reveal">
-      <p class="section-eyebrow">Você já se perguntou…</p>
-      <h2 class="section-title">Por que tanto treinamento<br><em>não muda nada?</em></h2>
+      <p class="section-eyebrow">A realidade de quem lidera pela primeira vez</p>
+      <h2 class="section-title">Virar líder é fácil.<br><em>Saber liderar é outra história.</em></h2>
       <p class="problema-text">
-        Você já sentou numa sala de treinamento, ouviu tudo, achou interessante e na segunda-feira de manhã estava tudo igual. O problema não é você. É a forma como o aprendizado é entregue.
+        A maioria dos novos líderes chega ao cargo por desempenho técnico e se vê perdido na hora de dar feedback, montar um time, lidar com conflito ou engajar pessoas tão diferentes.
       </p>
       <p class="problema-text">
-        Conteúdo sem contexto não transforma. Teoria sem prática não fica. Palestra sem acompanhamento some em 72 horas. É exatamente isso que eu vim mudar.
+        Sem preparo, o resultado é um líder sobrecarregado, um time desmotivado e uma empresa pagando o preço disso tudo.
       </p>
+      <div class="problema-dores" role="list">
+        <div class="problema-dor" role="listitem">
+          <div class="problema-dor-dot" aria-hidden="true"></div>
+          <p>Novo líder que era ótimo técnico mas não sabe como desenvolver as pessoas ao redor</p>
+        </div>
+        <div class="problema-dor" role="listitem">
+          <div class="problema-dor-dot" aria-hidden="true"></div>
+          <p>Empresa que promove sem preparar e acaba perdendo o profissional ou o time</p>
+        </div>
+        <div class="problema-dor" role="listitem">
+          <div class="problema-dor-dot" aria-hidden="true"></div>
+          <p>RH que quer estruturar uma trilha de liderança mas não sabe por onde começar</p>
+        </div>
+      </div>
       <div class="problema-highlight">
-        "Aprenda de verdade ou não aprenda."
+        "Novos líderes precisam de método, não de sorte."
       </div>
     </div>
   </div>
@@ -1006,24 +1235,25 @@
 <section id="servicos" aria-label="Serviços">
   <div class="container">
     <div class="servicos-header reveal">
-      <p class="section-eyebrow">O que eu faço</p>
-      <h2 class="section-title">Três formas de <em>transformar</em></h2>
+      <p class="section-eyebrow">Como podemos ajudar</p>
+      <h2 class="section-title">Como podemos ajudar<br><em>a sua empresa</em></h2>
+      <p style="max-width:560px;margin:0 auto;font-size:16px;color:var(--texto-soft);">Cada programa é desenhado para onde o seu time realmente está agora.</p>
     </div>
     <div class="servicos-grid">
 
       <article class="servico-card reveal">
-        <div class="servico-icon" style="background:#FEF8E7;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5C842" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="servico-icon" style="background:#F0E8F7;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9B59B6" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-        <h3>Mentoria Individual</h3>
-        <p>Sessões 1:1 focadas no seu momento, seus desafios e nos resultados que você quer alcançar. Nada genérico, nada de receita pronta. Só o que faz sentido pra você.</p>
+        <h3>Palestras</h3>
+        <p>Uma virada de chave que fica. Palestras comportamentais e motivacionais para despertar novos líderes, engajar times e abrir conversas que a empresa precisa ter.</p>
         <div class="servico-tag-list">
-          <span class="servico-tag" style="background:#FEF8E7;color:#9A6F00;">Carreira</span>
-          <span class="servico-tag" style="background:#FEF8E7;color:#9A6F00;">Liderança</span>
-          <span class="servico-tag" style="background:#FEF8E7;color:#9A6F00;">Propósito</span>
+          <span class="servico-tag" style="background:#F0E8F7;color:#6B2D8B;">Eventos</span>
+          <span class="servico-tag" style="background:#F0E8F7;color:#6B2D8B;">Conferências</span>
+          <span class="servico-tag" style="background:#F0E8F7;color:#6B2D8B;">In-company</span>
         </div>
-        <a href="#cta-final" class="btn-card" style="color:#9A6F00;border-color:#F5C842;">
-          Quero uma sessão
+        <a href="#contato" class="btn-card" style="color:#6B2D8B;border-color:#9B59B6;">
+          Contratar palestra
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
       </article>
@@ -1032,36 +1262,86 @@
         <div class="servico-icon" style="background:#EBF0FD;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4A6FE3" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-        <h3>Treinamentos Corporativos</h3>
-        <p>Antes de tudo, a gente mergulha no cenário da sua empresa pra entender os desafios reais. Nada de conteúdo enlatado. O que o seu time recebe foi feito pra ele.</p>
+        <h3>Treinamentos</h3>
+        <p>Aprendizado que vira comportamento. Programas práticos e personalizados para desenvolver líderes, melhorar comunicação, fortalecer cultura e gerar resultado real.</p>
         <div class="servico-tag-list">
           <span class="servico-tag" style="background:#EBF0FD;color:#1E3FA0;">Liderança</span>
           <span class="servico-tag" style="background:#EBF0FD;color:#1E3FA0;">Comunicação</span>
           <span class="servico-tag" style="background:#EBF0FD;color:#1E3FA0;">Equipes</span>
         </div>
-        <a href="#empresas" class="btn-card" style="color:#1E3FA0;border-color:#4A6FE3;">
+        <a href="#contato" class="btn-card" style="color:#1E3FA0;border-color:#4A6FE3;">
           Para minha empresa
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
       </article>
 
       <article class="servico-card reveal" style="transition-delay:0.2s;">
-        <div class="servico-icon" style="background:#F0E8F7;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9B59B6" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <div class="servico-icon" style="background:#E8F5EF;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4CAF72" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3>Palestras</h3>
-        <p>Não é aquela palestra que todo mundo aplaude e esquece no dia seguinte. É conteúdo que provoca, que gera conversa e que as pessoas levam pra vida. Presencial ou online, até 50 pessoas.</p>
+        <h3>Academia de Novos Líderes</h3>
+        <p>Do técnico ao líder completo. Trilha estruturada de desenvolvimento para quem acabou de assumir uma liderança ou está prestes a assumir. Método, prática e autoconhecimento.</p>
         <div class="servico-tag-list">
-          <span class="servico-tag" style="background:#F0E8F7;color:#6B2D8B;">Eventos</span>
-          <span class="servico-tag" style="background:#F0E8F7;color:#6B2D8B;">Conferências</span>
-          <span class="servico-tag" style="background:#F0E8F7;color:#6B2D8B;">In-company</span>
+          <span class="servico-tag" style="background:#E8F5EF;color:#1B6E3A;">Trilha</span>
+          <span class="servico-tag" style="background:#E8F5EF;color:#1B6E3A;">Novos líderes</span>
+          <span class="servico-tag" style="background:#E8F5EF;color:#1B6E3A;">Desenvolvimento</span>
         </div>
-        <a href="#cta-final" class="btn-card" style="color:#6B2D8B;border-color:#9B59B6;">
-          Contratar palestra
+        <a href="#contato" class="btn-card" style="color:#1B6E3A;border-color:#4CAF72;">
+          Quero saber mais
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
       </article>
 
+      <article class="servico-card reveal" style="transition-delay:0.3s;">
+        <div class="servico-icon" style="background:#FEF8E7;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5C842" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>Sessão Individual</h3>
+        <p>Para quem quer evoluir no próprio ritmo. Mentoria individual para líderes e profissionais que querem se conhecer melhor, clarear o caminho e crescer com intenção.</p>
+        <div class="servico-tag-list">
+          <span class="servico-tag" style="background:#FEF8E7;color:#9A6F00;">Mentoria</span>
+          <span class="servico-tag" style="background:#FEF8E7;color:#9A6F00;">Autoconhecimento</span>
+          <span class="servico-tag" style="background:#FEF8E7;color:#9A6F00;">Coaching</span>
+        </div>
+        <a href="https://wa.me/5511993388892?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20sess%C3%A3o%20individual!" target="_blank" rel="noopener noreferrer" class="btn-card" style="color:#9A6F00;border-color:#F5C842;">
+          Agendar sessão
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section id="para-quem" aria-label="Para quem é o TED Descomplicado">
+  <div class="container">
+    <div class="para-quem-header reveal">
+      <p class="section-eyebrow" style="color:var(--amarelo);">Para quem é</p>
+      <h2 class="section-title" style="color:#fff;">Para quem é o <em style="color:var(--amarelo);">TED Descomplicado</em></h2>
+    </div>
+    <div class="para-quem-grid">
+      <div class="para-quem-card reveal">
+        <div class="para-quem-icon" style="background:rgba(74,111,227,0.15);">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4A6FE3" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <h3>Para empresas</h3>
+        <p>Treinamentos, palestras e programas de liderança customizados para o seu negócio. Do diagnóstico à execução, com método e acompanhamento.</p>
+      </div>
+      <div class="para-quem-card reveal" style="transition-delay:0.1s;">
+        <div class="para-quem-icon" style="background:rgba(76,175,114,0.15);">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4CAF72" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Para grupos</h3>
+        <p>Workshops e dinâmicas para times, turmas e equipes em formação. Aprendizado coletivo que gera conexão e resultado junto.</p>
+      </div>
+      <div class="para-quem-card reveal" style="transition-delay:0.2s;">
+        <div class="para-quem-icon" style="background:rgba(245,200,66,0.15);">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5C842" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>Para você</h3>
+        <p>Sessão individual de mentoria e autoconhecimento para quem quer crescer no próprio ritmo, com clareza e intenção.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1072,21 +1352,27 @@
     <div class="sobre-inner">
       <div class="sobre-foto-wrap reveal">
         <div class="sobre-foto">
-          <img src="images/foto-sobre.png" alt="Fernando Cazzolli palestrando sobre Neuroeducação" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <img src="images/foto-sobre.png" alt="Fernando Cazzolli palestrando sobre desenvolvimento de liderança" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
         <div class="sobre-badge" aria-label="DHO · Neuroeducação · Treinamento · Psicologia Positiva · Coach">
           DHO · Neuroeducação<br>Treinamento<br>Psicologia Positiva<br>Coach
         </div>
       </div>
       <div class="reveal" style="transition-delay:0.15s;">
-        <p class="section-eyebrow sobre-eyebrow">Quem está por trás</p>
+        <p class="section-eyebrow sobre-eyebrow">Quem está do outro lado</p>
         <h2 class="sobre-title">Fernando Cazzolli<br><em>curioso por natureza,<br>educador por escolha</em></h2>
         <p class="sobre-text">
-          Não entrei em T&D por acidente. Entrei porque acredito de verdade que aprender muda tudo. A carreira, os relacionamentos, a forma como a gente enxerga o mundo.
+          Sou especialista em desenvolvimento humano e organizacional com mais de 12 anos trabalhando com pessoas. Comecei no marketing, passei pela liderança corporativa e encontrei no desenvolvimento de líderes o trabalho que realmente faz sentido pra mim.
         </p>
         <p class="sobre-text">
-          Sou aquele tipo de pessoa que começa a ler sobre neurociência às 22h e às 2h da manhã ainda está no quinto vídeo. Essa curiosidade é o que torna meu trabalho diferente. Não entrego fórmulas, entrego entendimento.
+          Hoje ajudo empresas a formarem novos líderes com método, clareza e autoconhecimento. Minha abordagem une neuroeducação, psicologia positiva e ferramentas práticas de diagnóstico comportamental porque acredito que liderar bem começa por se conhecer bem.
         </p>
+        <p class="sobre-text">
+          Já estruturei e executei projetos de liderança em empresas de segmentos como logística, indústria, seguros, energia e BPO. Cada projeto me ensinou que não existe fórmula única — existe escuta, diagnóstico e um caminho desenhado para quem está na sala.
+        </p>
+        <div class="sobre-quote">
+          "Não treino conteúdo. Desenvolvo pessoas."
+        </div>
         <div class="sobre-valores" role="list">
           <div class="valor-item" role="listitem">
             <div class="valor-dot" style="background:var(--amarelo);" aria-hidden="true"></div>
@@ -1101,7 +1387,7 @@
             <span class="valor-text">DHO sem complicação. Clareza sempre. Direto ao ponto, sempre.</span>
           </div>
         </div>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="sobre-link">
+        <a href="https://www.linkedin.com/in/fcazzolli/" target="_blank" rel="noopener noreferrer" class="sobre-link">
           Conectar no LinkedIn
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
         </a>
@@ -1110,12 +1396,50 @@
   </div>
 </section>
 
+<!-- FERRAMENTAS -->
+<section id="ferramentas" aria-label="Ferramentas TED Descomplicado">
+  <div class="container">
+    <div class="ferramentas-header reveal">
+      <p class="section-eyebrow">Diagnóstico em desenvolvimento</p>
+      <h2 class="section-title">Ferramentas que <em>transformam</em></h2>
+      <p class="ferramentas-sub">
+        No TED Descomplicado utilizamos ferramentas próprias de diagnóstico comportamental aplicadas dentro dos programas, treinamentos e sessões. Soluções acessíveis pensadas para pequenas e médias empresas.
+      </p>
+    </div>
+    <div class="ferramentas-grid">
+
+      <div class="ferramenta-card reveal">
+        <div class="ferramenta-num">Ferramenta 01</div>
+        <h3>Bússola do Perfil</h3>
+        <p>Mapeamento comportamental baseado em quatro perfis para entender como cada pessoa age, decide, se motiva e se relaciona no trabalho. Aplicado em times, processos seletivos e programas de liderança.</p>
+        <span class="ferramenta-tag">Diagnóstico comportamental</span>
+      </div>
+
+      <div class="ferramenta-card reveal" style="transition-delay:0.1s;">
+        <div class="ferramenta-num">Ferramenta 02</div>
+        <h3>Estilos de Gestão</h3>
+        <p>Diagnóstico do estilo de liderança atual do gestor, identificando pontos fortes e oportunidades de evolução. Baseado nos perfis protetor, trator, centralizador e empreendedor.</p>
+        <span class="ferramenta-tag">Desenvolvimento de líderes</span>
+      </div>
+
+      <div class="ferramenta-card reveal" style="transition-delay:0.2s;">
+        <div class="ferramenta-num">Ferramenta 03</div>
+        <h3>Roda da Vida e Dinâmicas</h3>
+        <p>Ferramentas de autoconhecimento aplicadas em sessões individuais e coletivas para mapear equilíbrio, valores e direção de desenvolvimento pessoal e profissional.</p>
+        <span class="ferramenta-tag">Autoconhecimento</span>
+      </div>
+
+    </div>
+    <p class="ferramentas-frase reveal">"Cada ferramenta gera um diagnóstico real. Cada diagnóstico vira um plano de ação."</p>
+  </div>
+</section>
+
 <!-- DEPOIMENTOS -->
 <section id="depoimentos" aria-label="Depoimentos">
   <div class="container">
     <div class="depo-header reveal">
-      <p class="section-eyebrow">Quem já passou por aqui</p>
-      <h2 class="section-title">Resultados que <em>falam</em></h2>
+      <p class="section-eyebrow">Quem já viveu na prática</p>
+      <h2 class="section-title">O que dizem quem já <em>viveu na prática</em></h2>
     </div>
     <div class="depo-grid">
 
@@ -1217,92 +1541,83 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
       <img src="images/galeria-1.png" alt="Fernando Cazzolli em treinamento corporativo" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:right center;border-radius:12px;cursor:zoom-in;">
       <img src="images/galeria-2.png" alt="Turma de treinamento TED Descomplicado" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center center;border-radius:12px;cursor:zoom-in;">
-      <img src="images/galeria-3.png" alt="Fernando Cazzolli palestrando sobre Transformação Digital" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center top;border-radius:12px;cursor:zoom-in;">
-      <img src="images/galeria-4.png" alt="Treinamento in company Jamef" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center center;border-radius:12px;cursor:zoom-in;">
+      <img src="images/galeria-3.png" alt="Fernando Cazzolli palestrando" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center top;border-radius:12px;cursor:zoom-in;">
+      <img src="images/galeria-4.png" alt="Treinamento in company" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center center;border-radius:12px;cursor:zoom-in;">
       <img src="images/galeria-5.png" alt="Fernando Cazzolli em palestra" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center top;border-radius:12px;cursor:zoom-in;">
       <img src="images/galeria-6.png" alt="Turma pós-treinamento TED Descomplicado" onclick="openLightbox(this.src)" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center center;border-radius:12px;cursor:zoom-in;">
     </div>
   </div>
 </section>
 
-<!-- EMPRESAS / B2B -->
-<section id="empresas" aria-label="Para empresas">
+<!-- CTA FINAL -->
+<section id="cta-final" aria-label="Call to action final">
+  <div class="cta-bg" aria-hidden="true"></div>
   <div class="container">
-    <div class="empresas-inner">
-      <div class="empresas-content reveal">
-        <p class="section-eyebrow">Para líderes de RH e gestores</p>
-        <h2 class="section-title" style="text-align:left;">Treinamentos<br><em>personalizados</em><br>e direto ao ponto.</h2>
-        <p>Do treinamento de líderes à capacitação de analistas de T&D — desenhamos programas para a realidade da sua empresa, não conteúdo enlatado que todo mundo já viu.</p>
-        <p>Treinamentos corporativos, comportamentais, palestras motivacionais e mentorias. Tudo com foco em resultados tangíveis para o seu negócio.</p>
-        <p style="font-size:13px;color:var(--cinza-500);margin-top:8px;">Empresas atendidas: Grupo Euro17 · SIS Serviços · Jamef · e outras.</p>
-        <ul class="empresas-lista" aria-label="Diferenciais">
-          <li><span class="check" aria-hidden="true">✓</span>Diagnóstico e imersão no cenário da sua empresa (LNT)</li>
-          <li><span class="check" aria-hidden="true">✓</span>Conteúdo 100% personalizado para cada situação</li>
-          <li><span class="check" aria-hidden="true">✓</span>Neuroeducação como base — potencializando o aprendizado</li>
-          <li><span class="check" aria-hidden="true">✓</span>Pós-treinamento: desafios, e-books, vídeos e certificados</li>
-          <li><span class="check" aria-hidden="true">✓</span>Presencial ou online (Teams, Meet ou Zoom)</li>
-          <li><span class="check" aria-hidden="true">✓</span>Turmas de líderes, analistas, equipes corporativas e comportamentais</li>
-        </ul>
-        <a href="#empresas-form" class="btn-primary" style="display:inline-flex;">
-          Solicitar proposta
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">Pronto para desenvolver<br><em>os líderes da sua empresa?</em></h2>
+      <p class="cta-sub">Conte como está o seu time hoje e vamos juntos desenhar o próximo passo.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/5511993388892?text=Ol%C3%A1%2C%20vim%20pelo%20site%20TED%20Descomplicado%20e%20gostaria%20de%20conversar!" target="_blank" rel="noopener noreferrer" class="btn-wpp" aria-label="Fale conosco pelo WhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Fale conosco pelo WhatsApp
         </a>
       </div>
-
-      <div id="empresas-form" class="empresas-form reveal" style="transition-delay:0.15s;">
-        <h3>Fale com Fernando</h3>
-        <p>Respondo em até 24h úteis.</p>
-        <div class="form-group">
-          <label for="nome">Seu nome</label>
-          <input type="text" id="nome" name="nome" placeholder="João Silva" autocomplete="name">
-        </div>
-        <div class="form-group">
-          <label for="empresa">Empresa</label>
-          <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa">
-        </div>
-        <div class="form-group">
-          <label for="email">E-mail corporativo</label>
-          <input type="email" id="email" name="email" placeholder="joao@empresa.com.br" autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label for="interesse">Interesse principal</label>
-          <select id="interesse" name="interesse">
-            <option value="">Selecione…</option>
-            <option>Treinamento corporativo</option>
-            <option>Palestra para evento</option>
-            <option>Mentoria para liderança</option>
-            <option>Programa de desenvolvimento</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="mensagem">Conte um pouco mais</label>
-          <textarea id="mensagem" name="mensagem" placeholder="Qual é o desafio do seu time hoje?"></textarea>
-        </div>
-        <div id="form-feedback" style="display:none; padding:14px 16px; border-radius:var(--radius-sm); font-size:14px; margin-bottom:12px;"></div>
-        <button type="button" class="btn-form" id="btn-enviar" onclick="submitForm()">Enviar mensagem</button>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section id="cta-final" aria-label="Contato final">
-  <div class="cta-bg" aria-hidden="true"></div>
+<!-- CONTATO / FORMULÁRIO -->
+<section id="contato" aria-label="Formulário de contato">
   <div class="container">
-    <div class="cta-inner reveal">
-      <h2 class="cta-title">E aí, vamos<br><em>acelerar o desenvolvimento</em><br>da sua equipe?</h2>
-      <p class="cta-sub">Soluções rápidas e direto ao ponto, com foco em resultados tangíveis. A primeira conversa é sem compromisso, pode chamar!</p>
-      <div class="cta-actions">
-        <a href="https://wa.me/5511993388892?text=Ol%C3%A1%2C%20vim%20pelo%20site%20TED%20Descomplicado%20e%20gostaria%20de%20conversar!"
-           target="_blank" rel="noopener noreferrer" class="btn-wpp" aria-label="Conversar no WhatsApp">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Conversar no WhatsApp
-        </a>
-        <a href="mailto:fernandocazzolli@gmail.com" class="btn-outline" aria-label="Enviar e-mail">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Enviar e-mail
-        </a>
+    <div class="contato-inner">
+      <div class="contato-content reveal">
+        <p class="section-eyebrow">Para líderes de RH e gestores</p>
+        <h2>Treinamentos<br><em>personalizados</em><br>e direto ao ponto.</h2>
+        <p>Do treinamento de líderes à formação de novas lideranças — desenhamos programas para a realidade da sua empresa, não conteúdo enlatado que todo mundo já viu.</p>
+        <p>Treinamentos corporativos, palestras, academia de novos líderes e sessões individuais. Tudo com foco em resultados tangíveis para o seu negócio.</p>
+        <ul class="contato-lista" aria-label="Diferenciais">
+          <li><span class="check" aria-hidden="true">✓</span>Diagnóstico e imersão no cenário da sua empresa</li>
+          <li><span class="check" aria-hidden="true">✓</span>Conteúdo 100% personalizado para cada situação</li>
+          <li><span class="check" aria-hidden="true">✓</span>Ferramentas próprias de diagnóstico comportamental</li>
+          <li><span class="check" aria-hidden="true">✓</span>Neuroeducação como base — potencializando o aprendizado</li>
+          <li><span class="check" aria-hidden="true">✓</span>Presencial ou online (Teams, Meet ou Zoom)</li>
+          <li><span class="check" aria-hidden="true">✓</span>Turmas de novos líderes, gestores e equipes corporativas</li>
+        </ul>
+      </div>
+      <div class="empresas-form reveal" style="transition-delay:0.15s;">
+        <h3>Solicitar proposta</h3>
+        <p>Respondo em até 24h úteis.</p>
+        <form action="https://formspree.io/f/mgawoneb" method="POST" id="contato-form" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label for="nome">Seu nome</label>
+            <input type="text" id="nome" name="nome" placeholder="João Silva" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa">
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail corporativo</label>
+            <input type="email" id="email" name="email" placeholder="joao@empresa.com.br" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="interesse">Interesse principal</label>
+            <select id="interesse" name="interesse">
+              <option value="">Selecione…</option>
+              <option>Palestra para evento</option>
+              <option>Treinamento corporativo</option>
+              <option>Academia de Novos Líderes</option>
+              <option>Sessão individual de mentoria</option>
+              <option>Programa de desenvolvimento completo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Conte um pouco mais</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Qual é o desafio do seu time hoje?"></textarea>
+          </div>
+          <div id="form-feedback" style="display:none; padding:14px 16px; border-radius:var(--radius-sm); font-size:14px; margin-bottom:12px;"></div>
+          <button type="submit" class="btn-form" id="btn-enviar">Enviar mensagem</button>
+        </form>
       </div>
     </div>
   </div>
@@ -1323,16 +1638,16 @@
       </div>
       <nav class="footer-links" aria-label="Links do rodapé">
         <a href="#servicos">Serviços</a>
+        <a href="#ferramentas">Ferramentas</a>
         <a href="#sobre">Sobre</a>
         <a href="#depoimentos">Depoimentos</a>
-        <a href="#empresas">Para empresas</a>
-        <a href="#cta-final">Contato</a>
+        <a href="#contato">Contato</a>
       </nav>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2025 TED Descomplicado — Fernando Cazzolli. Todos os direitos reservados.</span>
+      <span class="footer-copy">© 2026 TED Descomplicado — Fernando Cazzolli. Todos os direitos reservados.</span>
       <div class="footer-socials" aria-label="Redes sociais">
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/fcazzolli/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
@@ -1346,12 +1661,24 @@
   </div>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de imagem" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fechar imagem">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
   // Nav scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
+
+  // Hamburger menu
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+  }
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
@@ -1362,97 +1689,62 @@
         observer.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
-
-  // Mobile menu toggle
-  function toggleMenu() {
-    const links = document.querySelector('.nav-links');
-    links.classList.toggle('mobile-open');
-  }
-  // Fechar menu ao clicar em link
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.remove('mobile-open');
-    });
-  });
 
   // Lightbox
   function openLightbox(src) {
-    const lb = document.createElement('div');
-    lb.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:20px;';
-    lb.innerHTML = `<img src="${src}" style="max-width:90vw;max-height:90vh;border-radius:12px;object-fit:contain;">`;
-    lb.onclick = () => lb.remove();
-    document.body.appendChild(lb);
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
-  async function submitForm() {
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const empresa = document.getElementById('empresa').value.trim();
-    const interesse = document.getElementById('interesse').value;
-    const mensagem = document.getElementById('mensagem').value.trim();
-    const feedback = document.getElementById('form-feedback');
+  function closeLightbox(e) {
+    if (!e || e.target !== document.getElementById('lightbox-img')) {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Form submit
+  function submitForm(e) {
+    if (e) e.preventDefault();
     const btn = document.getElementById('btn-enviar');
+    const feedback = document.getElementById('form-feedback');
+    const form = document.getElementById('contato-form');
 
-    feedback.style.display = 'none';
-    document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(el => {
-      el.style.borderColor = '';
-    });
-
-    let erros = [];
-    if (!nome) erros.push('nome');
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) erros.push('email');
-    if (!empresa) erros.push('empresa');
-    if (!interesse) erros.push('interesse');
-
-    if (erros.length > 0) {
-      erros.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.style.borderColor = '#E24B4A';
-      });
-      feedback.style.display = 'block';
-      feedback.style.background = '#FCEBEB';
-      feedback.style.color = '#A32D2D';
-      feedback.style.border = '1px solid #F09595';
-      feedback.innerHTML = '&#9888; Preencha os campos obrigatórios: nome, e-mail, empresa e interesse.';
-      return;
-    }
-
+    btn.textContent = 'Enviando…';
     btn.disabled = true;
-    btn.textContent = 'Enviando...';
 
-    try {
-      const response = await fetch('https://formspree.io/f/mgawoneb', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, email, empresa, interesse, mensagem })
-      });
-
-      if (response.ok) {
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(r => {
+      if (r.ok) {
         feedback.style.display = 'block';
-        feedback.style.background = '#EAF3DE';
-        feedback.style.color = '#27500A';
-        feedback.style.border = '1px solid #97C459';
-        feedback.innerHTML = '&#10003; Mensagem enviada! Fernando vai responder em até 24h.';
-        btn.textContent = 'Mensagem enviada';
-        btn.style.background = '#4CAF72';
-        ['nome','empresa','email','interesse','mensagem'].forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.value = '';
-        });
+        feedback.style.background = '#E8F5EF';
+        feedback.style.color = '#1B6E3A';
+        feedback.style.border = '1px solid #4CAF72';
+        feedback.textContent = '✓ Mensagem enviada! Retorno em até 24h úteis.';
+        form.reset();
+        btn.textContent = 'Mensagem enviada ✓';
       } else {
-        throw new Error('Erro');
+        throw new Error();
       }
-    } catch (err) {
+    })
+    .catch(() => {
       feedback.style.display = 'block';
-      feedback.style.background = '#FCEBEB';
-      feedback.style.color = '#A32D2D';
-      feedback.style.border = '1px solid #F09595';
-      feedback.innerHTML = '&#9888; Ops, algo deu errado. Tente pelo WhatsApp.';
-      btn.disabled = false;
+      feedback.style.background = '#FEE';
+      feedback.style.color = '#C00';
+      feedback.style.border = '1px solid #F99';
+      feedback.textContent = 'Ops! Tente novamente ou fale pelo WhatsApp.';
       btn.textContent = 'Enviar mensagem';
-      btn.style.background = '';
-    }
+      btn.disabled = false;
+    });
   }
 </script>
 </body>
