@@ -30,6 +30,10 @@
     --radius-md:   12px;
     --radius-lg:   20px;
     --max-w:       1140px;
+    --max-w-wide:  1320px;
+    --section-pad: 140px;
+    --hairline:    rgba(0,0,0,0.08);
+    --hairline-dk: rgba(255,255,255,0.1);
   }
 
   /* ── RESET ── */
@@ -201,25 +205,38 @@
 
   /* ── SECTION EYEBROW / TITLE ── */
   .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--azul);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
+  .section-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1.5px;
+    background: currentColor;
+    opacity: 0.6;
+  }
+  .servicos-header .section-eyebrow,
+  .ferramentas-header .section-eyebrow,
+  .depo-header .section-eyebrow { justify-content: center; }
   .section-title {
     font-family: 'Fraunces', serif;
     font-weight: 900;
-    font-size: clamp(32px, 4vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: clamp(34px, 4.6vw, 58px);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
     color: var(--texto);
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     text-align: center;
   }
   .section-title em {
-    
+
     color: var(--azul);
     font-weight: 300;
   }
@@ -301,9 +318,11 @@
     50% { opacity: 0.5; transform: scale(0.8); }
   }
   .hero-title {
-    font-size: clamp(42px, 5.5vw, 68px);
+    font-size: clamp(44px, 6.2vw, 78px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
     color: #fff;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
   .hero-title em {
     color: var(--amarelo);
@@ -411,14 +430,22 @@
 
   /* ── PROBLEMA ── */
   #problema {
-    padding: 96px 0;
+    padding: var(--section-pad) 0;
     background: var(--off-white);
+    border-top: 1px solid var(--hairline);
   }
   .problema-inner {
-    max-width: 680px;
+    max-width: var(--max-w-wide);
     margin: 0 auto;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+    text-align: left;
   }
+  .problema-inner .section-eyebrow,
+  .problema-inner .section-title { text-align: left; }
+  .problema-lead { position: sticky; top: 100px; }
   .problema-text {
     font-size: 17px;
     line-height: 1.75;
@@ -428,72 +455,85 @@
   .problema-dores {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin: 32px 0;
-    text-align: left;
+    gap: 0;
+    margin: 0;
   }
   .problema-dor {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.07);
-    border-radius: var(--radius-md);
-    padding: 18px 20px;
+    gap: 18px;
+    padding: 28px 0;
+    border-top: 1px solid var(--hairline);
   }
+  .problema-dor:last-child { border-bottom: 1px solid var(--hairline); }
   .problema-dor-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--azul);
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--azul);
     flex-shrink: 0;
-    margin-top: 7px;
+    margin-top: 1px;
   }
   .problema-dor p {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.65;
     color: var(--texto);
   }
   .problema-highlight {
     font-family: 'Fraunces', serif;
-    
-    font-size: 22px;
+    font-style: italic;
+    font-size: clamp(26px, 2.4vw, 34px);
+    line-height: 1.3;
     font-weight: 300;
-    color: var(--azul);
-    margin-top: 32px;
-    padding: 24px 32px;
-    border-left: 3px solid var(--azul);
-    background: rgba(74,111,227,0.05);
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    color: var(--texto);
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 2px solid var(--azul);
     text-align: left;
+  }
+  .problema-highlight span { color: var(--azul); }
+  @media (max-width: 900px) {
+    .problema-inner { grid-template-columns: 1fr; gap: 40px; }
+    .problema-lead { position: static; }
   }
 
   /* ── SERVIÇOS ── */
   #servicos {
-    padding: 96px 0;
+    padding: var(--section-pad) 0;
     background: var(--cinza-100);
   }
   .servicos-header {
     text-align: center;
-    margin-bottom: 56px;
+    margin-bottom: 64px;
+    max-width: var(--max-w-wide);
+    margin-left: auto;
+    margin-right: auto;
   }
   .servicos-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    max-width: var(--max-w-wide);
+    margin: 0 auto;
   }
   .servico-card {
     background: #fff;
-    border-radius: var(--radius-lg);
-    padding: 36px 32px;
-    border: 1px solid rgba(0,0,0,0.06);
+    padding: 44px 40px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    transition: background 0.3s;
   }
-  .servico-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  .servico-card:hover { background: var(--off-white); }
+  .servico-index {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--cinza-500);
+    margin-bottom: 24px;
   }
   .servico-icon {
     width: 54px;
@@ -505,10 +545,12 @@
     margin-bottom: 20px;
   }
   .servico-card h3 {
-    font-size: 20px;
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     color: var(--texto);
+    letter-spacing: -0.01em;
   }
   .servico-card p {
     font-size: 15px;
@@ -535,7 +577,8 @@
   /* ── PARA QUEM ── */
   #para-quem {
     background: var(--noite);
-    padding: 80px 0;
+    padding: 120px 0;
+    border-top: 1px solid var(--hairline-dk);
   }
   .para-quem-header {
     text-align: center;
@@ -583,13 +626,14 @@
 
   /* ── SOBRE ── */
   #sobre {
-    padding: 96px 0;
+    padding: var(--section-pad) 0;
     background: var(--off-white);
+    border-top: 1px solid var(--hairline);
   }
   .sobre-inner {
     display: grid;
     grid-template-columns: 420px 1fr;
-    gap: 72px;
+    gap: 80px;
     align-items: center;
   }
   .sobre-foto-wrap { position: relative; }
@@ -616,14 +660,14 @@
   .sobre-title {
     font-family: 'Fraunces', serif;
     font-weight: 900;
-    font-size: clamp(28px, 3.5vw, 42px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: clamp(30px, 3.8vw, 50px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
     color: var(--texto);
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
   .sobre-title em {
-    
+
     font-weight: 300;
     color: var(--azul);
   }
@@ -635,15 +679,14 @@
   }
   .sobre-quote {
     font-family: 'Fraunces', serif;
-    
-    font-size: 20px;
+    font-style: italic;
+    font-size: clamp(22px, 2vw, 28px);
     font-weight: 300;
-    color: var(--azul);
-    padding: 20px 24px;
-    border-left: 3px solid var(--azul);
-    background: rgba(74,111,227,0.05);
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    margin: 24px 0;
+    line-height: 1.35;
+    color: var(--texto);
+    padding-top: 24px;
+    border-top: 2px solid var(--azul);
+    margin: 32px 0;
   }
   .sobre-valores { display: flex; flex-direction: column; gap: 14px; margin: 24px 0; }
   .valor-item { display: flex; align-items: flex-start; gap: 12px; }
@@ -668,8 +711,9 @@
 
   /* ── FERRAMENTAS ── */
   #ferramentas {
-    padding: 96px 0;
+    padding: var(--section-pad) 0;
     background: var(--cinza-100);
+    border-top: 1px solid var(--hairline);
   }
   .ferramentas-header {
     text-align: center;
@@ -700,18 +744,21 @@
     box-shadow: 0 16px 40px rgba(0,0,0,0.08);
   }
   .ferramenta-num {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--azul);
-    margin-bottom: 16px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 40px;
+    color: var(--cinza-300);
+    margin-bottom: 8px;
+    line-height: 1;
   }
   .ferramenta-card h3 {
-    font-size: 20px;
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
     font-weight: 700;
     color: var(--texto);
     margin-bottom: 12px;
+    letter-spacing: -0.01em;
   }
   .ferramenta-card p {
     font-size: 15px;
@@ -743,12 +790,13 @@
 
   /* ── DEPOIMENTOS ── */
   #depoimentos {
-    padding: 96px 0;
+    padding: var(--section-pad) 0;
     background: var(--off-white);
+    border-top: 1px solid var(--hairline);
   }
   .depo-header {
     text-align: center;
-    margin-bottom: 56px;
+    margin-bottom: 64px;
   }
   .depo-grid {
     display: grid;
@@ -762,6 +810,39 @@
     border: 1px solid rgba(0,0,0,0.06);
     display: flex;
     flex-direction: column;
+  }
+  .depo-feature {
+    grid-column: span 3;
+    background: var(--noite);
+    border: none;
+    padding: 56px 64px;
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+  }
+  .depo-feature .depo-quote-mark {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 0.7;
+    color: var(--amarelo);
+    flex-shrink: 0;
+  }
+  .depo-feature .depo-text {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(20px, 1.7vw, 26px);
+    line-height: 1.45;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .depo-feature .depo-stars { color: var(--amarelo); }
+  .depo-feature .depo-name { color: #fff; }
+  .depo-feature .depo-role { color: rgba(255,255,255,0.5); }
+  @media (max-width: 900px) {
+    .depo-feature { flex-direction: column; padding: 40px 32px; text-align: left; }
+    .depo-feature .depo-quote-mark { font-size: 64px; }
   }
   .depo-stars {
     color: var(--amarelo);
@@ -832,11 +913,11 @@
   .cta-title {
     font-family: 'Fraunces', serif;
     font-weight: 900;
-    font-size: clamp(36px, 5vw, 56px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: clamp(38px, 5.5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
   .cta-title em {
     
@@ -858,8 +939,9 @@
 
   /* ── FORMULÁRIO ── */
   #contato {
-    padding: 80px 0;
+    padding: 120px 0;
     background: var(--cinza-100);
+    border-top: 1px solid var(--hairline);
   }
   .contato-inner {
     display: grid;
@@ -870,10 +952,10 @@
   .contato-content h2 {
     font-family: 'Fraunces', serif;
     font-weight: 900;
-    font-size: clamp(28px, 3.5vw, 40px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
+    font-size: clamp(30px, 3.8vw, 46px);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
   }
   .contato-content h2 em {
     
@@ -1201,31 +1283,35 @@
 <!-- PROBLEMA -->
 <section id="problema" aria-label="O problema que resolvemos">
   <div class="container">
-    <div class="problema-inner reveal">
-      <p class="section-eyebrow">A realidade de quem lidera pela primeira vez</p>
-      <h2 class="section-title">Virar líder é fácil.<br><em>Saber liderar é outra história.</em></h2>
-      <p class="problema-text">
-        A maioria dos novos líderes chega ao cargo por desempenho técnico e se vê perdido na hora de dar feedback, montar um time, lidar com conflito ou engajar pessoas tão diferentes.
-      </p>
-      <p class="problema-text">
-        Sem preparo, o resultado é um líder sobrecarregado, um time desmotivado e uma empresa pagando o preço disso tudo.
-      </p>
-      <div class="problema-dores" role="list">
-        <div class="problema-dor" role="listitem">
-          <div class="problema-dor-dot" aria-hidden="true"></div>
-          <p>Novo líder que era ótimo técnico mas não sabe como desenvolver as pessoas ao redor</p>
-        </div>
-        <div class="problema-dor" role="listitem">
-          <div class="problema-dor-dot" aria-hidden="true"></div>
-          <p>Empresa que promove sem preparar e acaba perdendo o profissional ou o time</p>
-        </div>
-        <div class="problema-dor" role="listitem">
-          <div class="problema-dor-dot" aria-hidden="true"></div>
-          <p>RH que quer estruturar uma trilha de liderança mas não sabe por onde começar</p>
-        </div>
+    <div class="problema-inner">
+      <div class="problema-lead reveal">
+        <p class="section-eyebrow">A realidade de quem lidera pela primeira vez</p>
+        <h2 class="section-title">Virar líder é fácil.<br><em>Saber liderar é outra história.</em></h2>
+        <p class="problema-text">
+          A maioria dos novos líderes chega ao cargo por desempenho técnico e se vê perdido na hora de dar feedback, montar um time, lidar com conflito ou engajar pessoas tão diferentes.
+        </p>
+        <p class="problema-text">
+          Sem preparo, o resultado é um líder sobrecarregado, um time desmotivado e uma empresa pagando o preço disso tudo.
+        </p>
       </div>
-      <div class="problema-highlight">
-        "Novos líderes precisam de método, não de sorte."
+      <div class="reveal" style="transition-delay:0.1s;">
+        <div class="problema-dores" role="list">
+          <div class="problema-dor" role="listitem">
+            <div class="problema-dor-dot" aria-hidden="true">01</div>
+            <p>Novo líder que era ótimo técnico mas não sabe como desenvolver as pessoas ao redor</p>
+          </div>
+          <div class="problema-dor" role="listitem">
+            <div class="problema-dor-dot" aria-hidden="true">02</div>
+            <p>Empresa que promove sem preparar e acaba perdendo o profissional ou o time</p>
+          </div>
+          <div class="problema-dor" role="listitem">
+            <div class="problema-dor-dot" aria-hidden="true">03</div>
+            <p>RH que quer estruturar uma trilha de liderança mas não sabe por onde começar</p>
+          </div>
+        </div>
+        <div class="problema-highlight">
+          <span>"Novos líderes</span> precisam de método, não de sorte."
+        </div>
       </div>
     </div>
   </div>
@@ -1242,6 +1328,7 @@
     <div class="servicos-grid">
 
       <article class="servico-card reveal">
+        <div class="servico-index">01</div>
         <div class="servico-icon" style="background:#F0E8F7;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9B59B6" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
@@ -1259,6 +1346,7 @@
       </article>
 
       <article class="servico-card reveal" style="transition-delay:0.1s;">
+        <div class="servico-index">02</div>
         <div class="servico-icon" style="background:#EBF0FD;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4A6FE3" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
@@ -1276,6 +1364,7 @@
       </article>
 
       <article class="servico-card reveal" style="transition-delay:0.2s;">
+        <div class="servico-index">03</div>
         <div class="servico-icon" style="background:#E8F5EF;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4CAF72" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
@@ -1293,6 +1382,7 @@
       </article>
 
       <article class="servico-card reveal" style="transition-delay:0.3s;">
+        <div class="servico-index">04</div>
         <div class="servico-icon" style="background:#FEF8E7;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5C842" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
@@ -1409,21 +1499,21 @@
     <div class="ferramentas-grid">
 
       <div class="ferramenta-card reveal">
-        <div class="ferramenta-num">Ferramenta 01</div>
+        <div class="ferramenta-num">01</div>
         <h3>Bússola do Perfil</h3>
         <p>Mapeamento comportamental baseado em quatro perfis para entender como cada pessoa age, decide, se motiva e se relaciona no trabalho. Aplicado em times, processos seletivos e programas de liderança.</p>
         <span class="ferramenta-tag">Diagnóstico comportamental</span>
       </div>
 
       <div class="ferramenta-card reveal" style="transition-delay:0.1s;">
-        <div class="ferramenta-num">Ferramenta 02</div>
+        <div class="ferramenta-num">02</div>
         <h3>Estilos de Gestão</h3>
         <p>Diagnóstico do estilo de liderança atual do gestor, identificando pontos fortes e oportunidades de evolução. Baseado nos perfis protetor, trator, centralizador e empreendedor.</p>
         <span class="ferramenta-tag">Desenvolvimento de líderes</span>
       </div>
 
       <div class="ferramenta-card reveal" style="transition-delay:0.2s;">
-        <div class="ferramenta-num">Ferramenta 03</div>
+        <div class="ferramenta-num">03</div>
         <h3>Roda da Vida e Dinâmicas</h3>
         <p>Ferramentas de autoconhecimento aplicadas em sessões individuais e coletivas para mapear equilíbrio, valores e direção de desenvolvimento pessoal e profissional.</p>
         <span class="ferramenta-tag">Autoconhecimento</span>
@@ -1443,16 +1533,19 @@
     </div>
     <div class="depo-grid">
 
-      <article class="depo-card reveal">
-        <div class="depo-stars" aria-label="5 estrelas">★★★★★</div>
-        <blockquote class="depo-text">
-          "Seus treinamentos sem sombra de dúvidas foram um dos melhores que já tive até hoje. Nos ajuda a ter uma visão de trabalho de futuro maior e melhor. Completo em todos os sentidos."
-        </blockquote>
-        <div class="depo-author">
-          <div class="depo-avatar" style="background:var(--azul);" aria-hidden="true">SS</div>
-          <div>
-            <div class="depo-name">Stefane Milene Andrade dos Santos</div>
-            <div class="depo-role">Analista Pleno de Seguros · SIS Soluções Integradas</div>
+      <article class="depo-card depo-feature reveal">
+        <div class="depo-quote-mark" aria-hidden="true">"</div>
+        <div>
+          <div class="depo-stars" aria-label="5 estrelas">★★★★★</div>
+          <blockquote class="depo-text">
+            Seus treinamentos sem sombra de dúvidas foram um dos melhores que já tive até hoje. Nos ajuda a ter uma visão de trabalho de futuro maior e melhor. Completo em todos os sentidos.
+          </blockquote>
+          <div class="depo-author">
+            <div class="depo-avatar" style="background:var(--azul);" aria-hidden="true">SS</div>
+            <div>
+              <div class="depo-name">Stefane Milene Andrade dos Santos</div>
+              <div class="depo-role">Analista Pleno de Seguros · SIS Soluções Integradas</div>
+            </div>
           </div>
         </div>
       </article>
