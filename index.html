@@ -574,6 +574,64 @@
     .servicos-grid { grid-template-columns: 1fr; }
   }
 
+  /* ── SERVIÇO EM DESTAQUE (Gamificação) ── */
+  .servico-card-featured {
+    background: linear-gradient(160deg, rgba(245,200,66,0.12), #fff 60%);
+    border: 1.5px solid rgba(245,200,66,0.5);
+  }
+  .servico-card-featured:hover {
+    background: linear-gradient(160deg, rgba(245,200,66,0.18), var(--off-white) 60%);
+  }
+  .servico-featured-banner {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 44px;
+    padding: 40px 44px;
+  }
+  .servico-featured-text { flex: 1; }
+  .servico-featured-text .servico-icon { margin-bottom: 16px; }
+  .tetris-board {
+    position: relative;
+    flex: 0 0 108px;
+    width: 108px;
+    height: 108px;
+    background: rgba(245,200,66,0.08);
+    border: 1.5px solid rgba(245,200,66,0.35);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .tetris-block {
+    position: absolute;
+    bottom: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    opacity: 0;
+    animation: tetrisDrop 3.2s cubic-bezier(0.55,0,0.85,0.35) infinite;
+  }
+  .tetris-block:nth-child(1) { left: 10px;  background: var(--amarelo); animation-delay: 0s; }
+  .tetris-block:nth-child(2) { left: 44px;  background: var(--verde);   animation-delay: 0.5s; }
+  .tetris-block:nth-child(3) { left: 10px;  background: var(--azul);    animation-delay: 1s; }
+  .tetris-block:nth-child(4) { left: 44px;  background: var(--roxo);    animation-delay: 1.5s; }
+  @keyframes tetrisDrop {
+    0%   { transform: translateY(-64px); opacity: 0; }
+    10%  { opacity: 1; }
+    35%  { transform: translateY(0); }
+    42%  { transform: translateY(-8px); }
+    50%  { transform: translateY(0); }
+    82%  { transform: translateY(0); opacity: 1; }
+    95%  { opacity: 0; }
+    100% { transform: translateY(-64px); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tetris-block { animation: none; opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 720px) {
+    .servico-featured-banner { flex-direction: column; padding: 36px 32px; }
+    .tetris-board { flex: 0 0 108px; }
+  }
+
   /* ── PARA QUEM ── */
   #para-quem {
     background: var(--noite);
@@ -1351,11 +1409,11 @@
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4A6FE3" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
         <h3>Treinamentos</h3>
-        <p>Aprendizado que vira comportamento. Programas práticos e personalizados para desenvolver líderes, melhorar comunicação, fortalecer cultura e gerar resultado real.</p>
+        <p>Aprendizado que vira comportamento. Programas práticos e personalizados para atendimento, relacionamento interpessoal, comportamento e cultura organizacional.</p>
         <div class="servico-tag-list">
-          <span class="servico-tag" style="background:#EBF0FD;color:#1E3FA0;">Liderança</span>
-          <span class="servico-tag" style="background:#EBF0FD;color:#1E3FA0;">Comunicação</span>
-          <span class="servico-tag" style="background:#EBF0FD;color:#1E3FA0;">Equipes</span>
+          <span class="servico-tag" style="background:#EBF0FD;color:#1E3FA0;">Atendimento</span>
+          <span class="servico-tag" style="background:#EBF0FD;color:#1E3FA0;">Comportamental</span>
+          <span class="servico-tag" style="background:#EBF0FD;color:#1E3FA0;">Relacionamento</span>
         </div>
         <a href="#contato" class="btn-card" style="color:#1E3FA0;border-color:#4A6FE3;">
           Para minha empresa
@@ -1397,6 +1455,31 @@
           Agendar sessão
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
+      </article>
+
+      <article class="servico-card servico-card-featured servico-featured-banner reveal" style="transition-delay:0.4s;">
+        <div class="tetris-board" aria-hidden="true">
+          <span class="tetris-block"></span>
+          <span class="tetris-block"></span>
+          <span class="tetris-block"></span>
+          <span class="tetris-block"></span>
+        </div>
+        <div class="servico-featured-text">
+          <div class="servico-icon" style="background:#FEF8E7;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5C842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="6"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/></svg>
+          </div>
+          <h3>Treinamentos Gamificados</h3>
+          <p>Aprendizado que prende a atenção do início ao fim. Dinâmicas, desafios e mecânicas de jogo aplicadas a conteúdos reais, com engajamento máximo e resultado concreto.</p>
+          <div class="servico-tag-list">
+            <span class="servico-tag" style="background:#FEF8E7;color:#9A6F00;">Gamificação</span>
+            <span class="servico-tag" style="background:#FEF8E7;color:#9A6F00;">Engajamento</span>
+            <span class="servico-tag" style="background:#FEF8E7;color:#9A6F00;">Dinâmicas</span>
+          </div>
+          <a href="#contato" class="btn-card" style="color:#9A6F00;border-color:var(--amarelo);">
+            Quero uma ação gamificada
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
       </article>
 
     </div>
